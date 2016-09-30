@@ -46,7 +46,7 @@ var socialShareX_Module = (function() {
             var finalURL = '',
                 ele = e.target;
             ele = getClick_targetClass_elem(e.target, class_unit_socialX99);
-            if (!ele || ele == null) {
+            if (!ele || ele === null) {
                 console.log('clicked_targetClass_elem not found!');
                 return;
             }
@@ -74,17 +74,19 @@ var socialShareX_Module = (function() {
         });
         //end of for loop
         //utils
-        function getClick_targetClass_elem(elem, targetClass) {
-            if (elem.classList.contains(targetClass)) {
-                return elem;
-            } else {
-                return findParentWithClassX99(elem, targetClass);
-            }
-        }
+    }
 
-        function findParentWithClassX99(el, cls) {
-            while ((el = el.parentElement) && !el.classList.contains(cls));
-            return el;
+    function getClick_targetClass_elem(elem, targetClass) {
+        if (elem.classList.contains(targetClass)) {
+            return elem;
+        } else {
+            return findParentWithClassX99(elem, targetClass);
         }
     }
+
+    function findParentWithClassX99(el, cls) {
+        while ((el = el.parentElement) && !el.classList.contains(cls));
+        return el;
+    }
+
 })();
